@@ -109,7 +109,7 @@ df$genre
 
 # b) Horror in vector? 
 "Horror" %in% c("Comedy", "Documentary", "Drama")  
-
+63/444
 # c) Comedy in vector?
 "Comedy" %in% c("Comedy", "Documentary", "Drama")
 
@@ -289,7 +289,7 @@ text(x = max(df$edu, na.rm = TRUE) * 0.1,
      y = max(df$income, na.rm = TRUE) * 0.9,
      labels = sprintf("Correlation = %.4f", r),
      adj = 0)
-
+# .4f means i want 4 decimal points
 
 # -------------------------------#
 # d. Bivariate regression
@@ -298,6 +298,11 @@ text(x = max(df$edu, na.rm = TRUE) * 0.1,
 # Question: Is there a relationship between education and income?
 # Model: income = b0 + b1 * education + e
 summary(lm(df$income ~ df$edu))
+
+# lm means linear model function
+# order here is important as x and y reversed would look for the opposite relation
+# beta (976) is the y incerpet (where x is 0) meaning this is how much income we would get with 0 years education
+# alpha/the slope (250) is by every additional year of education we would get this much increase in income
 
 # Output interpretation:
 #  - Intercept (b0): expected income when education = 0

@@ -34,6 +34,9 @@ lapply(c(),  pkgTest)
 #####################
 
 y <- c(105, 69, 86, 100, 82, 111, 104, 110, 87, 108, 87, 90, 94, 113, 112, 98, 80, 97, 95, 111, 114, 89, 95, 126, 98)
+
+# Question 1
+
 y
 mean(y)
 sd(y)
@@ -58,13 +61,15 @@ df = 24
 df
 p <- pt(t, df, lower.tail = FALSE)
 p
-print("The p-value is greater than alpha-level 0.05, therefore we cannot reject the Null hypothesis. We do not find evidence that the average student IQ at the teacher's school is not higher than the national school average.")
+print("The p-value is greater than the alpha-level 0.05, therefore we fail to reject the Null hypothesis that the average student IQ at the teacher's school is not higher than the national school average.")
 #####################
 # Problem 2
 #####################
 
 expenditure <- read.table("https://raw.githubusercontent.com/ASDS-TCD/StatsI_2026/main/datasets/expenditure.txt", header=T)
 show(expenditure)
+
+# Question 1
 
 ggplot(data = expenditure, aes(x = X1,
                           y = Y, size = X2, 
@@ -79,6 +84,12 @@ ggplot(data = expenditure, aes(x = X1,
 
 print("Housing assitance expenditure is higher in states with higher personal income. These states also show higher financial security. Lower income states show a higher number of urban residents per 1000.")
 
+# Question 2
+
+levels(expenditure$Region)
+expenditure$Region <- as.factor(expenditure$Region)
+levels(expenditure$Region) <- c("Northeast", "North Center", "South", "West")
+
 ggplot(data = expenditure, aes(x = Region,
                                y = Y)) +
   geom_point() +
@@ -89,6 +100,7 @@ ggplot(data = expenditure, aes(x = Region,
 
 print("On average, the Western region has the highest per capita housing assistance expenditure.")
 
+# Question 3
 
 ggplot(data = expenditure, aes(x = X1,
                               y = Y)) +
@@ -102,8 +114,8 @@ print("Housing assistance expenditure is highest on average in states with a per
 
 ggplot(data = expenditure, aes(x = X1,
                                y = Y,
-                               color = Region,
-                               shape = as.factor(Region))) +
+                               color = (Region),
+                               shape = (Region))) +
   geom_point() +
   labs(title = "Per Capita Housing Assistance Expenditure by Personal Income",
        x = "Per Capita Personal Income",
