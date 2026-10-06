@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.11)  6 OCT 2026 11:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.11)  6 OCT 2026 18:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -912,16 +912,75 @@ Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
  []
 
+(./PS01_solution_ED.R [1
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
+al/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}])
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
-[1
-
-{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
-al/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-(./PS01_solution_ED.R) [2] (./PS01_solution_ED.aux)
+(./PS01_solution_ED.R) (./PS01_solution_ED.R) (./PS01_solution_ED.R) [2]
+(./PS01_solution_ED.R) (./PS01_solution_ED.R)
+<PS01plot1.png, id=55, 338.9463pt x 275.5896pt>
+File: PS01plot1.png Graphic file (type png)
+<use PS01plot1.png>
+Package pdftex.def Info: PS01plot1.png  used on input line 147.
+(pdftex.def)             Requested size: 338.94548pt x 275.58891pt.
+ [3]
+<plot1.png, id=74, 1505.625pt x 910.40125pt>
+File: plot1.png Graphic file (type png)
+<use plot1.png>
+Package pdftex.def Info: plot1.png  used on input line 156.
+(pdftex.def)             Requested size: 256.50424pt x 155.09956pt.
+ (./PS01_solution_ED.R
+[4 <./PS01plot1.png> <./plot1.png>])
+<plot2.png, id=83, 1505.625pt x 1065.9825pt>
+File: plot2.png Graphic file (type png)
+<use plot2.png>
+Package pdftex.def Info: plot2.png  used on input line 168.
+(pdftex.def)             Requested size: 219.07967pt x 155.1084pt.
+<plot3.png, id=84, 1505.625pt x 1071.00125pt>
+File: plot3.png Graphic file (type png)
+<use plot3.png>
+Package pdftex.def Info: plot3.png  used on input line 176.
+(pdftex.def)             Requested size: 218.04584pt x 155.10327pt.
+<plot4.png, id=85, 1505.625pt x 1071.00125pt>
+File: plot4.png Graphic file (type png)
+<use plot4.png>
+Package pdftex.def Info: plot4.png  used on input line 184.
+(pdftex.def)             Requested size: 218.04584pt x 155.10327pt.
+ [5 <./plot2.png> <./plot3.png>]
+<plot5.png, id=99, 1124.2pt x 799.98875pt>
+File: plot5.png Graphic file (type png)
+<use plot5.png>
+Package pdftex.def Info: plot5.png  used on input line 192.
+(pdftex.def)             Requested size: 217.9573pt x 155.09998pt.
+<plot6.png, id=100, 1124.2pt x 799.98875pt>
+File: plot6.png Graphic file (type png)
+<use plot6.png>
+Package pdftex.def Info: plot6.png  used on input line 201.
+(pdftex.def)             Requested size: 217.9573pt x 155.09998pt.
+ [6 <./plot4.png> <./plot5.png> <./plot6.png>]
+<PS01plot2.png, id=108, 1091.07625pt x 803.0pt>
+File: PS01plot2.png Graphic file (type png)
+<use PS01plot2.png>
+Package pdftex.def Info: PS01plot2.png  used on input line 215.
+(pdftex.def)             Requested size: 210.75287pt x 155.10791pt.
+ (./PS01_solution_ED.R)
+<PS01plot3.png, id=109, 1324.95pt x 808.01875pt>
+File: PS01plot3.png Graphic file (type png)
+<use PS01plot3.png>
+Package pdftex.def Info: PS01plot3.png  used on input line 234.
+(pdftex.def)             Requested size: 254.3309pt x 155.10332pt.
+ [7 <./PS01plot2.png>] (./PS01_solution_ED.R)
+<PS01plot4.png, id=128, 1505.625pt x 803.0pt>
+File: PS01plot4.png Graphic file (type png)
+<use PS01plot4.png>
+Package pdftex.def Info: PS01plot4.png  used on input line 252.
+(pdftex.def)             Requested size: 290.82733pt x 155.10791pt.
+ (./PS01_solution_ED.R [8 <./PS01plot3.png> <./PS01plot4.png>]) [9] (./PS01_sol
+ution_ED.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -930,13 +989,13 @@ Package rerunfilecheck Info: File `PS01_solution_ED.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27217 strings out of 467525
- 473558 string characters out of 5418982
- 1110106 words of memory out of 5000000
- 55641 multiletter control sequences out of 15000+600000
+ 27417 strings out of 467525
+ 476503 string characters out of 5418982
+ 1201106 words of memory out of 5000000
+ 55739 multiletter control sequences out of 15000+600000
  638507 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,6n,104p,3248b,2133s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,6n,104p,3248b,2152s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
@@ -948,10 +1007,10 @@ l/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local
 /texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/
 texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/te
 xlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on PS01_solution_ED.pdf (2 pages, 127536 bytes).
+Output written on PS01_solution_ED.pdf (9 pages, 900058 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 229 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
+ 93 named destinations out of 1000 (max. 500000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

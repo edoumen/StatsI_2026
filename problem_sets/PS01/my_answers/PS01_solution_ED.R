@@ -53,6 +53,8 @@ high
 
 # Question 2
 
+class(y)
+
 print("H0: the sample mean is not higher than the population mean of 100")
 print("H1: The sample mean is higher than the population mean of 100")
 t <- (mean(y) - 100) / se
@@ -71,6 +73,7 @@ show(expenditure)
 
 # Question 1
 
+# Y, X1, X2, X3 in one plot
 ggplot(data = expenditure, aes(x = X1,
                           y = Y, size = X2, 
                           color = X3)) +
@@ -82,7 +85,70 @@ ggplot(data = expenditure, aes(x = X1,
        color = "Financial security per 100,000") +
   theme_bw()
 
-print("Housing assitance expenditure is higher in states with higher personal income. These states also show higher financial security. Lower income states show a higher number of urban residents per 1000.")
+# Plot 1: Y + X1
+ggplot(data = expenditure, aes(x = X1,
+                               y = Y)) +
+  geom_point() +
+  labs(title = "Per Capita Housing Assistance Expenditure by Personal Income",
+       x = "Per Capita Personal Income",
+       y = "Per Capita Housing Assistance Expenditure") +
+theme_bw()
+print("The scatterplot implies a positive linear association between per capita housing assistance expenditure and per capita personal income in the states.")
+
+# Plot 2: Y + X2
+ggplot(data = expenditure, aes(x = X2,
+                               y = Y)) +
+  geom_point() +
+  labs(title = "Per Capita Housing Assistance Expenditure and Financial Security",
+       x = "Financially Secure Residents per 100,000",
+       y = "Per Capita Housing Assistance Expenditure") +
+  theme_bw()
+
+print("The scatterplot shows a slightly U-shaped distribution, showing more housing assistance expenditure in areas with financially stable residents <200 and >400 per 100,000.")
+
+# Plot 3: Y + X3
+ggplot(data = expenditure, aes(x = X3,
+                               y = Y)) +
+  geom_point() +
+  labs(title = "Per Capita Housing Assistance Expenditure and Urban Residence",
+       x = "Number of residents in urban areas per 1,000",
+       y = "Per Capita Housing Assistance Expenditure") +
+  theme_bw()
+
+print("The scatterplot shows a positive linear distribution of the number of urban area residents and the per capita ousing assistance expenditure.")
+
+# Plot 4: X1 + X2
+ggplot(data = expenditure, aes(x = X1,
+                               y = X2)) +
+  geom_point() +
+  labs(title = "Personal Income and Financial Security",
+       x = "Per Capita Personal Income",
+       y = "Financially secure residents per 100,000") +
+  theme_bw()
+
+print("The scatterplot shows no association between per capita personal income and financially secure residents per 100,000.")
+
+# Plot 5: X1 + X3
+ggplot(data = expenditure, aes(x = X1,
+                               y = X3)) +
+  geom_point() +
+  labs(title = "Personal Income and Urban residency",
+       x = "Per Capita Personal Income",
+       y = "Number of residents in urban areas per 1,000") +
+  theme_bw()
+
+print("The scatterplot shows a positive linear association between per capita personal income and the number of residents in urban areas per 1,000.")
+
+# Plot 6:
+ggplot(data = expenditure, aes(x = X3,
+                               y = X2)) +
+  geom_point() +
+  labs(title = "Urban Area Residence and Financial Security",
+       x = "Number of residents in urban areas per 1,000",
+       y = "Financially stable residents per 100,000") +
+  theme_bw()
+
+print("The scatterplot shows no association between the number of urban area residents per 1,000 and the number of financially stable residents per 100,000.")
 
 # Question 2
 
