@@ -2,6 +2,11 @@
 
 # Question 1 a)
 
+# I establish the hypotheses for independence.
+
+print("H0: Class and police response towards traffic violations are independent.")
+print("H1: Class and police response towards traffic violations are dependent.")
+
 # First I calculate the expected frequencies
 
 fe_upperc_not_stopped <- (27*21)/42
@@ -87,14 +92,15 @@ cor.test(wpolicy$reserved, wpolicy$water)
 model <- lm(water~reserved, data = wpolicy)
 model
 abline(model)
-
 summary(model)
-9.252/3.948
 
-print("p-value < 0.05, we estimate the slope coefficient is statistically significant, providing evidence against the null hypothesis that the effect of reservation policy on new or repaired drinking water facilities equals zero.")
+9.252/3.948
+2*pt(q=2.34, df=320, lower.tail=FALSE)
+
+print("As the p-value < 0.05, it indicates the slope coefficient is statistically significant, providing evidence against the null hypothesis that the effect of reservation policy on new or repaired drinking water facilities equals zero.")
 
 # Question 2 c)
 
-print("The estimated coefficients imply that, in the absence of reservation policy, on average, 14.738 new or repaired water facilities are present. In the presence of reservation policy 9.252 additional new or repaired water facilities are available.")
+print("The estimated coefficients imply that, in the absence of reservation policy, 14.738 new or repaired water facilities are present. In the presence of reservation policy, an estimated 9.252 additional new or repaired water facilities are available.")
 
 

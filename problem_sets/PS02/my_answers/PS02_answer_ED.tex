@@ -87,8 +87,9 @@
 		& Not Stopped & Bribe requested & Stopped/given warning \\
 		\\[-1.8ex] 
 		\hline \\[-1.8ex]
-		Upper class & 14 & 6 & 7 \\
-		Lower class & 7 & 7 & 1 \\
+		Upper class &14 &6 &7 \\
+		\\
+		Lower class &7 &7 &1 \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -97,11 +98,18 @@
 	
 	\item [(a)]
 	Calculate the $\chi^2$ test statistic by hand/manually (even better if you can do "by hand" in \texttt{R}).\\
-	\vspace{7cm}
+	\lstinputlisting[language=R, firstline=5, lastline=39]{PS02_answer_ED.R}  
+	
+	The above calculation provides a $\chi^2$ test statistic result of 3.79. 
+	
+	\vspace{1cm}
 	
 	\item [(b)]
 	Now calculate the p-value from the test statistic you just created (in \texttt{R}).\footnote{Remember frequency should be $>$ 5 for all cells, but let's calculate the p-value here anyway.}  What do you conclude if $\alpha = 0.1$?\\
 	
+		\lstinputlisting[language=R, firstline=43, lastline=49]{PS02_answer_ED.R} 
+		As indicated above, at a significance level of 0.1, we fail to reject the null hypothesis of independence.
+		
 	\newpage
 	\item [(c)] Calculate the standardized residuals for each cell and put them in the table below.
 	\vspace{1cm}
@@ -112,17 +120,21 @@
 			& Not Stopped & Bribe requested & Stopped/given warning \\
 			\\[-1.8ex] 
 			\hline \\[-1.8ex]
-			Upper class  &  &  &  \\
+			Upper class  & 0.3  & -1.6 & 1-5 \\
 			\\
-			Lower class &  &   &   \\
+			Lower class &-0.3  &  1.6 &  -1.5 \\
 			
 		\end{tabular}
 	\end{table}
 	
-	
-	\vspace{7cm}
+		\lstinputlisting[language=R, firstline=53, lastline=68]{PS02_answer_ED.R}
+		
+		
+	\vspace{1cm}
 	\item [(d)] How might the standardized residuals help you interpret the results?  
 	
+		\lstinputlisting[language=R, firstline=72, lastline=72]{PS02_answer_ED.R}
+		
 \end{enumerate}
 \newpage
 
@@ -142,12 +154,15 @@ Chattopadhyay and Duflo were interested in whether women promote different polic
 \newpage
 \begin{enumerate}
 	\item [(a)] State a null and alternative (two-tailed) hypothesis. 
-	
-	\vspace{6cm}
+		\lstinputlisting[language=R, firstline=85, lastline=86]{PS02_answer_ED.R}
+	\vspace{2cm}
 	\item [(b)] Run a bivariate regression to test this hypothesis in \texttt{R} (include your code!).
-	
-	\vspace{6cm}
+		\lstinputlisting[language=R, firstline=90, lastline=100]{PS02_answer_ED.R}
+		Above, I have first plotted the variables and run a correlation test, the result of which (0.13) shows a weak positive correlation. Then I ran a regression in R with the reservation policy as the explanatory variable and new/repaired water facilities as the outcome variable. The regression provided me with the estimated coefficients to interpret below. 
+	\vspace{1cm}
 	\item [(c)] Interpret the coefficient estimate for reservation policy. 
+		\lstinputlisting[language=R, firstline=104, lastline=104]{PS02_answer_ED.R}
+		
 \end{enumerate}
 
 
