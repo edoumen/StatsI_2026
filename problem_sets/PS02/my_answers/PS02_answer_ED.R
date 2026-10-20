@@ -24,7 +24,7 @@ fo_lowerc_warning <- 1
 
 UC1 <- (fo_upperc_not_stopped - fe_upperc_not_stopped)^2/fe_upperc_not_stopped
 UC2 <- (fo_upperc_bribe - fe_upperc_bribe)^2/fe_upperc_bribe
-UC3 <- (fo_lowerc_warning - fe_upperc_warning)^2/fe_upperc_warning
+UC3 <- (fo_upperc_warning - fe_upperc_warning)^2/fe_upperc_warning
 LC1 <- (fo_lowerc_not_stopped - fe_lowerc_not_stopped)^2/fe_lowerc_not_stopped
 LC2 <- (fo_lowerc_bribe - fe_lowerc_bribe)^2/fe_lowerc_bribe
 LC3 <- (fo_lowerc_warning - fe_lowerc_warning)^2/fe_lowerc_warning
@@ -41,7 +41,7 @@ pchisq(q = drivers_chi_squared, df = df , lower.tail = FALSE)
 
 # I conclude as follows:
 
-print("Because the p-value 0.04 is smaller than the alpha level 0.1, we find evidence to reject the hypothesis that class is independent of police treatment in traffic.")
+print("Because the p-value 0.15 is larger than the alpha level 0.1, we fail to reject the hypothesis that class is independent of police treatment in traffic.")
 
 # Question 1 c)
 
@@ -77,16 +77,22 @@ tail(wpolicy)
 
 # Question 2 a) Hypotheses
 
-H0 <- "The reservation policy has no effect on number of new or repaired drinking water facilities."
-H1 <- "The reservation policy has an effect on the number of new or repaired drinking water facilities."
+print("H0: The reservation policy's effect on number of new or repaired drinking water facilities equals zero.")
+print("H1: The reservation policy's effect on the number of new or repaired drinking water facilities does not equal zero.")
 
 # Question 2 b) Bivariate Regression
 
-ggplot(data = wpolicy, aes(x = wpolicy$GP, 
-                           y = wpolicy$water, 
-                           color = wpolicy$reserved)) + 
-  geom_point()
+plot(x=wpolicy$reserved, y=wpolicy$water)
+model <- lm(water~reserved, data = wpolicy)
+model
+abline(model)
+summary(model)
+9.252/3.948
 
-plot(x = wpolicy$village, y = wpolicy$water)
+print("p-value < 0.05, we estimate the slope coefficient is statistically significant, providing evidence against the null hypothesis that the effect of reservation policy on new or repaired drinking water facilities equals zero.")
 
-lm(wpolicy)
+# Question 2 c)
+
+print("The estimated coefficients imply that, in the absence of reservation policy, 14.738 new or repaired water facilities are present. In the presence of reservation policy, 9.252 additional new or repaired water facilities are available.")
+
+
