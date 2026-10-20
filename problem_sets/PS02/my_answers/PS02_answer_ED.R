@@ -83,9 +83,11 @@ print("H1: The reservation policy's effect on the number of new or repaired drin
 # Question 2 b) Bivariate Regression
 
 plot(x=wpolicy$reserved, y=wpolicy$water)
+cor.test(wpolicy$reserved, wpolicy$water)
 model <- lm(water~reserved, data = wpolicy)
 model
 abline(model)
+
 summary(model)
 9.252/3.948
 
@@ -93,6 +95,6 @@ print("p-value < 0.05, we estimate the slope coefficient is statistically signif
 
 # Question 2 c)
 
-print("The estimated coefficients imply that, in the absence of reservation policy, 14.738 new or repaired water facilities are present. In the presence of reservation policy, 9.252 additional new or repaired water facilities are available.")
+print("The estimated coefficients imply that, in the absence of reservation policy, on average, 14.738 new or repaired water facilities are present. In the presence of reservation policy 9.252 additional new or repaired water facilities are available.")
 
 
