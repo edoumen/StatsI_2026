@@ -69,7 +69,7 @@ LC3_res <- (fo_lowerc_warning - fe_lowerc_warning) / sqrt(fe_lowerc_warning * (1
 
 #Question 1 d)
 
-print("The standardized residuals for the not-stopped-column are 0.3/-0.3, indicating support for the null hypothesis of independence. The bribe-column standardized residuals are -1.6/1.6, and for the warning-column 1.5/-1.5, indicating a possible mild association.")
+print("The standardized residuals for the not-stopped-column are 0.3/-0.3, indicating support for the null hypothesis of independence. The standardized residuals for the bribe column are -1.6/1.6, and for the warning-column, 1.5/-1.5. These indicate at most a possible mild association. Overall, with standardized residuals falling below 2 and above -2, we fail to reject the null hypothesis.")
 
 #Question 2
 

@@ -120,7 +120,7 @@
 			& Not Stopped & Bribe requested & Stopped/given warning \\
 			\\[-1.8ex] 
 			\hline \\[-1.8ex]
-			Upper class  & 0.3  & -1.6 & 1-5 \\
+			Upper class  & 0.3  & -1.6 & 1.5 \\
 			\\
 			Lower class &-0.3  &  1.6 &  -1.5 \\
 			
@@ -133,6 +133,7 @@
 	\vspace{1cm}
 	\item [(d)] How might the standardized residuals help you interpret the results?  
 	
+	All of the standardized residuals are less than 2 and more than -2, indicating support for the null hypothesis of independence. In R, I noted my interpretation.
 		\lstinputlisting[language=R, firstline=72, lastline=72]{PS02_answer_ED.R}
 		
 \end{enumerate}
@@ -160,7 +161,11 @@ Chattopadhyay and Duflo were interested in whether women promote different polic
 		\lstinputlisting[language=R, firstline=90, lastline=100]{PS02_answer_ED.R}
 		Above, I have first plotted the variables and run a correlation test, the result of which (0.13) shows a weak positive correlation. Then I ran a regression in R with the reservation policy as the explanatory variable and new/repaired water facilities as the outcome variable. The regression provided me with the estimated coefficients to interpret below. 
 	\vspace{1cm}
-	\item [(c)] Interpret the coefficient estimate for reservation policy. 
+	\item [(c)] Interpret the coefficient estimate for reservation policy.  
+		\vspace{.5cm}
+	
+	The coefficient estimates for reservation policy are 14.738 for the y-intercept, and 9.252 for the slope. These values are interpreted as follows:
+	
 		\lstinputlisting[language=R, firstline=104, lastline=104]{PS02_answer_ED.R}
 		
 \end{enumerate}
