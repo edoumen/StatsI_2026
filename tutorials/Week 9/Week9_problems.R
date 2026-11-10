@@ -121,7 +121,7 @@ plot(jitter(df_IRE$edlvdie, 2), jitter(df_IRE$euftf_re, 2))
 # -----------------------------------------------------------
 # Simple model: socio-demographic variables only
 # -----------------------------------------------------------
-model_base <- # your answer here
+model_base <- lm(euftf_re ~ gndr + agea + brncntr, data = df_IRE)
 summary(model_base)
 
 # -----------------------------------------------------------
@@ -189,10 +189,10 @@ summary(model_cul)
 model_final <- # your answer here
 summary(model_final)
 
-# Get Latex table
+# Get Latex table -> put the output table into latex with this command
 stargazer(model1,model_eco,model_pol,model_cul,model_final)
 
-# How to visualize results?
+# How to visualize results? -> show regression output like this
 coefplot(model_final)
 coefplot(model1, add=TRUE, col.pts="gray")
 
