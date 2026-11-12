@@ -39,6 +39,8 @@ inc.sub <- read.csv("https://raw.githubusercontent.com/ASDS-TCD/StatsI_2026/main
 model_1 <- lm(voteshare ~ difflog, data = inc.sub)
 summary(model_1)
 
+stargazer(model_1)
+
 # 1.2.
 
 plot(x = inc.sub$difflog, y = inc.sub$voteshare,
@@ -50,16 +52,18 @@ abline(model_1, col = "red")
 # 1.3.
 
 model_1_res <- residuals(model_1)
-model_1_res
+head(model_1_res)
+stargazer(head(model_1_res))
 
 # 1.4.
-# Prediction Equation: yhat = alphahat0 + betahat1x = 0.58 + 0.04x ? 
+# Prediction Equation: y = 0.58 + 0.04x
 
 # Question 2
 # 2.1.
 
 model_2 <- lm(presvote ~ difflog, data = inc.sub)
 summary(model_2)
+stargazer(model_2)
 
 # 2.2.
 
@@ -72,16 +76,18 @@ plot(x = inc.sub$difflog, y = inc.sub$presvote,
 # 2.3. 
 
 model_2_res <- residuals(model_2)
-model_2_res
+head(model_2_res)
+stargazer(head(model_2_res))
 
 # 2.4.
-#Prediction Equation Y = 0.51 + 0.02x ?
+#Prediction Equation Y = 0.51 + 0.02x
 
 # Question 3
 # 3.1.
 
 model_3 <- lm(voteshare ~ presvote, data = inc.sub)
 summary(model_3)
+stargazer(model_3)
 
 #3.2.
 
@@ -97,6 +103,7 @@ plot(x = inc.sub$presvote, y = inc.sub$voteshare,
 # 4.1.
 model_res <- lm(model_1_res ~ model_2_res)
 summary(model_res)
+stargazer(model_res)
 
 # 4.2.
 
@@ -107,13 +114,14 @@ plot(x = model_2_res, y = model_1_res,
   abline(model_res, col = "red")
 
 # 4.3.
-# Prediction Equation: Y = -5.934e-18 + 2-569e-01x ????
+# Prediction Equation: Y = -5.934e-18 + 2-569e-01x
 
 # Question 5
 # 5.1.
 
 model_5 <- lm(inc.sub$voteshare ~ inc.sub$difflog + inc.sub$presvote)
 summary(model_5)
+stargazer(model_5)
 
 # 5.2.
 # Prediction Equation: Y = 0.45 + 0.04x1 + 0.26x2
