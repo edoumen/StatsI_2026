@@ -113,7 +113,7 @@ vioplot(df$euftf_re ~ df$edu_cat)
 # Scatter plot: Relationship between years in education and EU attitude
 plot(df$eduyrs, df$euftf_re)
 
-# Add some noise
+# Add some noise (to show density better)
 plot(jitter(df$eduyrs,2),jitter(df$euftf_re,2))
 
 # -----------------------------------------------------------
@@ -164,7 +164,7 @@ summary(model1)
 
 # What is the prediction equation?
 # Your answer here
-
+# euroscept hat = 4.82 + 0.041*eduyrs
 # Categorical independent variable (manually)
 
 # Create dummy variables 
@@ -177,7 +177,7 @@ df$Postgraduate <- ifelse(df$edu_cat == "Postgraduate Degree", 1, 0)
 # Faster way to create dummy set
 df <- dummy_cols(df, select_columns = "edu_cat")
 
-# Fit model
+# Fit model - junior cert is reference category against which all the interpretations are made from this output
 model1 <- lm(euftf_re ~ LeavingCertificate + AdvancedCertificate + Bachelor + Postgraduate,
              data=df)
 summary(model1)
@@ -187,7 +187,7 @@ model1 <- lm(euftf_re~ JuniorCycle + AdvancedCertificate + Bachelor + Postgradua
              data=df)
 summary(model1)
 
-# Categorical independent variable, using factor variables
+# Categorical independent variable, using factor variables - this is how we should do it, when we have factor variables, there will be an automatic reference category included
 is.factor(df$edu_cat)
 model1 <- lm(euftf_re ~ edu_cat,data=df)
 summary(model1)
@@ -202,9 +202,9 @@ df$edu_cat <- relevel(df$edu_cat, ref = 4)
 levels(df$edu_cat) # First level, "Leaving Certificate"
 
 # Refit model
-model11 <- lm(euftf_re ~ edu_cat,data=df)
+model11 <- lm(euftf_re ~ edu_cat,data=df) # the output should not include Bachelor, don't know why it shows up here
 summary(model1) 
-
+# looking at the pvalues education doesn't make a difference for euroscepticism, at the end of the output there is f-statistic and p-value, that is > 0.05 so its not significant
 # Which hypothesis test can we interpret?
 # What is the t-test for individual coefficients?
 # What is the F-test for all coefficients?
@@ -283,21 +283,21 @@ summary(model_eco)
 # Add political dimension
 model_pol <- lm(euftf_re~eduyrs + hinctnta + trstplt, data=df_na)
 summary(model_pol)
-
+# change in F and p-value - plus we see by stars that now theres a significant predictor
 # Which interpretations can we make?
 
 # Add cultural dimension
 model_cul <- lm(euftf_re~eduyrs + hinctnta + trstplt + imwbcnt, data=df_na)
 summary(model_cul)
-
+#now politics is no longer significant, but imwbcnt is
 # Which interpretations can we make?
 
 # Add socio-economic variables 
 model_final <- lm(euftf_re~eduyrs + hinctnta + trstplt + imwbcnt + gndr + agea + brncntr, data=df_na)
 summary(model_final)
-
+#overall f test is significant here as 1 factor is not 0
 # Which interpretations can we make?
-
+#Every one unit increase in your attitude towards immigration (so favorable towards immigration) reduces euroscepticism by 0.375. P-value for f-test is less than threshold of 0.05 which leads us to reject the null that none of the factors are relevant to explain the variatin. 
 # Get Latex table
 stargazer(model1,model_eco,model_pol,model_cul,model_final)
 
@@ -307,7 +307,7 @@ coefplot::multiplot(
        "Model 5: Final Model" = model_final),
   intercept = FALSE
 )
-
+#all except immigration attitude touch 0, showing that they are not significant
 # -----------------------------------------------------------
 # F-Test for some of the coefficients
 # -----------------------------------------------------------
@@ -315,15 +315,14 @@ coefplot::multiplot(
 # Does adding economic dimension improve fit?
 anova(model1, model_eco, test='F')
 summary(model_eco)
-
+# -> barely a difference between the residuals, including economic dimension was not helpful in improving the model fit -> not reject the null
 # Does adding political dimension improve fit?
 anova(model1, model_pol, test='F')
 summary(model_pol)
-
+# goes down -> residuals go down, big enough effect that the F-test is significant -> reject null
 # What about political dimension alone?
 model3 <- lm(euftf_re ~ eduyrs + trstplt, data=df_na) # Refit with df_na
 anova(model1, model3, test='F')
-
 # Does adding cultural dimension improve fit?
 anova(model1, model_cul, test='F')
 summary(model_cul)
@@ -331,7 +330,7 @@ summary(model_cul)
 # What about cultural dimension alone?
 model4 <- lm(euftf_re~eduyrs+imwbcnt,data=df_na) # Refit with df_na
 anova(model1, model4, test='F')
-
+# improves fit. full model performs better than the reduced model, p-value <0.05
 # -----------------------------------------------------------
 # Visualization
 # -----------------------------------------------------------
