@@ -112,13 +112,13 @@ coefplot::multiplot(
 # Does adding economic dimension improve fit?
 anova(model1, model_eco, test='F')
 summary(model_eco)
-
+# no it does not, fail to reject 0 that it does not improve model fit based on the pvalue
 # In which cases is partial F test not equal to t-test?
 
 # Does adding political dimension improve fit?
-
+#missing commands
 # What about political dimension alone?
-
+#missing commands
 # Does adding the education dummy set improve fit?
 model5 <- lm(euftf_re~hinctnta + trstplt + imwbcnt, data=df_na)
 model6 <- lm(euftf_re~hinctnta + trstplt + imwbcnt + edu_cat, data=df_na)
@@ -126,7 +126,7 @@ anova(model5, model6, test='F')
 summary(model6)
 
 # In conclusion: When to use partial F test?
-
+#Answer is missing here
 # (3) Interactions ------------
 
 # So far, visualizing regression models with categorical independent variables 
@@ -157,7 +157,7 @@ ggplot(df_na, aes(imwbcnt, euftf_re, group = edu_cat)) +
 
 # Recode dummy variables as 0,1; needed for interactions
 df_na$gndr <- ifelse(df_na$gndr == 2, 1, 0)
-
+#the above means "treat the one that is currently 2 as 1, and everything else as 0
 # And convert into factor
 df_na$gndr <- factor(df_na$gndr, labels = c("Male", "Female"))
 
