@@ -107,6 +107,8 @@ help(Prestige)
 	
 	\vspace{.5cm}
 	\lstinputlisting[language=R, firstline=46, lastline=47]{PS04_answer_ED.R}
+	
+	Table 1 shows the results of the regression model. 
 	% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
 	% Date and time: Thu, Nov 26, 2026 - 12:14:08
 	\begin{table}[!htbp] \centering 
@@ -125,7 +127,7 @@ help(Prestige)
 			professional & 37.781$^{***}$ \\ 
 			& (4.248) \\ 
 			& \\ 
-			professional & $-$0.002$^{***}$ \\ 
+			professional x income & $-$0.002$^{***}$ \\ 
 			& (0.001) \\ 
 			& \\ 
 			Constant & 21.142$^{***}$ \\ 
@@ -153,21 +155,23 @@ help(Prestige)
 	$\makebox[\linewidth]{\^{y}  = 21.142 + 0.0031* income + 37.7812*professional - 0.0023*income*professional}$
 	
 	\vspace{.5cm}
-	More precisely, we can now formulate the prediction equation for professionals and for non-professionals, by inputting 1 for professionals, and 0 for non-professionals. The equations are as follows:
+	More precisely, we can now formulate the prediction equation for professionals and for non-professionals (blue and white collar workers), by inputting 1 for professionals, and 0 for non-professionals. The equations are as follows:
 	
 	$\makebox[\linewidth]{\^{y} = 21.142 + 0.0031* income + 37.7812*1 - 0.0023*income*1}$
 	
 	$\makebox[\linewidth]{\^{y}  = 21.142 + 0.0031* income}$
-	\vspace{.5cm}
+	\vspace{.25cm}
 	\item [(d)]
 	Interpret the coefficient for \texttt{income}.
 	
 	\vspace{.5cm}	
+	
 	For non-professionals, a one unit increase in income is associated with an increase of 0.0031 in prestige of their job, on average.
 	\vspace{.5cm}
 	\item [(e)]
 	Interpret the coefficient for \texttt{professional}.
 	\vspace{.5cm}
+	
 	At an income of zero, professionals have, on average, a higher prestige value of 37.78 for their job than non-professionals, i.e. blue and white collar workers. The interaction effect of professional status on income decreases the prestige by -0.0023.
 	
 	\vspace{.5cm}
@@ -176,7 +180,7 @@ help(Prestige)
 	
 	\vspace{.5cm}
 	
-	The effect can be obtained by inputting an income value into the prediction equation for professionals.
+	The effect can be obtained by inputting an income value into the prediction equation for professionals. I calculated this for an income of $0$, then for $1,000$ and subtract the two to obtain the marginal change. In a second caluclation, I check the validity of my result by calculating the marginal change of income on prestige for a professional. 
 	
 \begin{verbatim}
 	> # for 0$
@@ -198,6 +202,7 @@ help(Prestige)
 	\item [(g)]
 	What is the effect of changing one's occupations from non-professional to professional when her income is \$6,000? We are interested in the marginal effect of professional jobs when the variable \texttt{income} takes the value of $6,000$. Calculate the change in $\hat{y}$ based on your answer for (c).
 	\vspace{.5cm}
+	
 	The calculation can be done with the prediction equation, inserting the income value of $6,000$ for both non-professionals and for professionals. This results in the following calculation and prestige values:
 	
 	\begin{verbatim}
@@ -256,26 +261,19 @@ a precinct that was adjacent to a precinct in the treatment group (since people 
 	
 	First, we calculate the t-statistic and the degrees of freedom.
 	
+	\lstinputlisting[language=R, firstline=118, lastline=119]{PS04_answer_ED.R}
+	\lstinputlisting[language=R, firstline=122, lastline=123]{PS04_answer_ED.R}
 \begin{verbatim}
-	> # t = beta1_hat / standard error
-	> tstat1 <- 0.042 / 0.016
-	> # t = beta1_hat / standard error
-	> tstat1 <- 0.042 / 0.016
 	> tstat1
 	[1] 2.625
-	> # degrees of freedom = n - k - 1
-	> df <- 131 - 2 - 1
-	> # degrees of freedom = n - k - 1
-	> df <- 131 - 2 - 1
 	> df
 	[1] 128
 \end{verbatim}
 
 	
-	With the t-statistic and the degrees of freedom we can calculate the p-value.
+	We can now calculate the p-value.
 	
 	\lstinputlisting[language=R, firstline=126, lastline=126]{PS04_answer_ED.R}
-	
 	\begin{verbatim}
 		> 2*pt(tstat1, df, lower.tail=FALSE)
 		[1] 0.00972002
@@ -292,8 +290,9 @@ a precinct that was adjacent to a precinct in the treatment group (since people 
 	
 	H0: $\beta_2$ = 0; H1: $\beta_2$ $\neq$ 0
 	
+	\lstinputlisting[language=R, firstline=134, lastline=134]{PS04_answer_ED.R}
+	
 \begin{verbatim}
-	> tstat2 <- 0.042 / 0.013
 	> tstat2
 	[1] 3.230769
 \end{verbatim}
