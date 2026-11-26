@@ -193,10 +193,13 @@ help(Prestige)
 	> # Marginal change
 	> 59.7232 - 58.9232
 	[1] 0.8
-	> # Check - marginal change of X1 on Y: ß1 + ß3 * X2
+\end{verbatim}
+As mentioned, I check the marginal change of X1 on Y: $\beta_1$ + $\beta_3$ * X2
+\begin{verbatim}
 	> 0.0031 + (-0.0023) * 1
 	[1] 8e-04
 \end{verbatim}
+
 	The marginal change of income on prestige is 0.0008 at an income of $1$. For an income of $1,000$, the change in prestige is 0.8. 
 	\vspace{.5cm}
 	\item [(g)]
@@ -259,10 +262,10 @@ a precinct that was adjacent to a precinct in the treatment group (since people 
 	
 	We perform a t-test with the coefficient for precincts with yard signs where our null hypothesis is H0: $\beta_1$ = 0, and our alternative hypothesis is H1: $\beta_1$ $\neq$ 0.
 	
-	First, we calculate the t-statistic and the degrees of freedom.
+	First, we calculate the t-statistic and the degrees of freedom using the following formulas: t = $\hat{\beta}$ $\div$ $\hat{\sigma_\beta}$ and df = n - k - 1
 	
 	\lstinputlisting[language=R, firstline=118, lastline=119]{PS04_answer_ED.R}
-	\lstinputlisting[language=R, firstline=122, lastline=123]{PS04_answer_ED.R}
+	\lstinputlisting[language=R, firstline=123, lastline=123]{PS04_answer_ED.R}
 \begin{verbatim}
 	> tstat1
 	[1] 2.625
